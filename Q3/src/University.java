@@ -106,6 +106,7 @@ public class University {
 	}
 
 	public void fireProfessor() throws IOException{
+		int checkIfFired=0;
 		BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Enter name of professor");
 		String name = sc.readLine();
@@ -117,10 +118,12 @@ public class University {
 				if (prof.name.equalsIgnoreCase(name)) {
 					it.remove();
 					System.out.println(name + " has been removed ");
-				} else {
-					System.out.println(name + "not found in any department");
+					checkIfFired++;
+					break;
 				}
 			}
 		}
-	}
+		 if(checkIfFired!=0)
+				System.out.println(name + "not found in any department");
+			}
 }
